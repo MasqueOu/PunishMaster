@@ -1,0 +1,9 @@
+name: PunishMaster
+version: '${project.version}'
+authors: [MasqueOu]
+main: be.masqueou.punishmaster.PunishMaster
+api-version: '1.20'
+commands:
+  yolo:
+    description: gae
+    usage: type in chat gae
