@@ -49,10 +49,12 @@ public class PunishCommand extends CommandManager {
                     "unmute",
                     "unmute-ip",
                     "kick",
+                    "kick-ip",
                     "history",
                     "staffhistory",
                     "rollback",
                     "lockdown");
+            //TODO : Need to be replaced in the future by a condition (check if Proxy or Redis is used, etc..)
             Bukkit.getOnlinePlayers().forEach(onlinePlayer -> completes.add(onlinePlayer.getDisplayName()));
         }
         return completes;

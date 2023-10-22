@@ -76,5 +76,11 @@
             <version>16.0.1</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+            <version>3.0.2</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>
