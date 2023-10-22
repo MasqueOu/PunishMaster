@@ -12,8 +12,8 @@ public class CommandRoot {
     private final PunishMaster punishMaster;
     private final List<CommandManager> punishCommandList = new ArrayList<>();
 
-    public CommandRoot(PunishMaster mainClazz) {
-        this.punishMaster = mainClazz;
+    public CommandRoot(PunishMaster punishMaster) {
+        this.punishMaster = punishMaster;
 
         Collections.addAll(punishCommandList,
                 new PunishCommand()

@@ -11,7 +11,7 @@ import java.util.List;
 public class PunishCommand extends CommandManager {
 
     public PunishCommand() {
-        super(new String[]{"punishmaster", "pm"});
+        super(new String[]{"punishmaster", "pm", "punish"});
     }
 
     @Override
@@ -53,7 +53,8 @@ public class PunishCommand extends CommandManager {
                     "history",
                     "staffhistory",
                     "rollback",
-                    "lockdown");
+                    "lockdown",
+                    "staffchat");
             //TODO : Need to be replaced in the future by a condition (check if Proxy or Redis is used, etc..)
             Bukkit.getOnlinePlayers().forEach(onlinePlayer -> completes.add(onlinePlayer.getDisplayName()));
         }

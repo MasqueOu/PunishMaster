@@ -1,18 +1,38 @@
+#  ________  ___  ___  ________   ___  ________  ___  ___  _____ ______   ________  ________  _________  _______   ________
+#|\   __  \|\  \|\  \|\   ___  \|\  \|\   ____\|\  \|\  \|\   _ \  _   \|\   __  \|\   ____\|\___   ___\\  ___ \ |\   __  \
+#\ \  \|\  \ \  \\\  \ \  \\ \  \ \  \ \  \___|\ \  \\\  \ \  \\\__\ \  \ \  \|\  \ \  \___|\|___ \  \_\ \   __/|\ \  \|\  \
+# \ \   ____\ \  \\\  \ \  \\ \  \ \  \ \_____  \ \   __  \ \  \\|__| \  \ \   __  \ \_____  \   \ \  \ \ \  \_|/_\ \   _  _\
+#  \ \  \___|\ \  \\\  \ \  \\ \  \ \  \|____|\  \ \  \ \  \ \  \    \ \  \ \  \ \  \|____|\  \   \ \  \ \ \  \_|\ \ \  \\  \|
+#   \ \__\    \ \_______\ \__\\ \__\ \__\____\_\  \ \__\ \__\ \__\    \ \__\ \__\ \__\____\_\  \   \ \__\ \ \_______\ \__\\ _\
+#    \|__|     \|_______|\|__| \|__|\|__|\_________\|__|\|__|\|__|     \|__|\|__|\|__|\_________\   \|__|  \|_______|\|__|\|__|
+#                                       \|_________|                                 \|_________|
+
+##################################################################################################################
+# Warning. Changing the configuration without knowledge can lead to problems.                                    #
+# I've done my best to make the plugin configuration as simple as possible.                                      #
+# But, if you need help configuring your plugin, you can join my Development Discord: https://discord.makzou.be/ #
+##################################################################################################################
+
 main:
-  prefix: "§6[§cPunishMaster§6]"
-  lang: "en_US"
+  prefix: "§6[§cPunishMaster§6]" # Set a prefix for chat messages.
+  lang: "en_US" # Supported languages can be find in "./plugins/PunishMaster/lang/".
+  check_update: true # Enables the plugin to run a check (at startup) to see if a newer version is available.
 system:
   proxy:
-    # Need to be enabled if you've a Proxy behind your gameserver.
-    use_bungeecord: false
-    # Need to be enabled if you've some Proxy (using RedisBungee) behind your gameserver.
-    # Unused at this moment. use_bungeecord need to be enabled too.
-    use_redisbungee: false
+    # Need to be enabled if you've a Proxy (BungeeCord, Velocity, Waterfall, etc...) behind your gameserver.
+    proxy_mode: false
+    # Need to be enabled if you've some Proxies (using RedisBungee) behind your gameserver.
+    # Unused at this moment.
+    redisbungee_mode: false
 database:
-  # JSON Punishment saver. In a file.
-  json:
+  # SQLite Punishment saver. In a file based database.
+  # Not compatible with RedisBungee or Proxied mode.
+  sqlite:
     use: true
-    file_name: "punishments.json"
+    hostname: ""
+    username: ""
+    password: ""
+    database_name: ""
   # MySQL Punishment saver. In a database.
   mysql:
     use: false
@@ -21,21 +41,6 @@ database:
     password: ""
     database_name: ""
     port: "3306"
-  # Recommanded. MongoDB Punishment saver. In a database.
-  mongodb:
-    use: false
-    hostname: ""
-    username: ""
-    password: ""
-    database_name: ""
-    port: "27017"
-  # SQLite Punishment saver. In a file based database.
-  sqlite:
-    use: false
-    hostname: ""
-    username: ""
-    password: ""
-    database_name: ""
 permissions:
   commands:
     help: "punishmaster.command.help"
@@ -48,6 +53,7 @@ permissions:
     mute-ip: "punishmaster.command.mute-ip"
     unmute-ip: "punishmaster.command.unmute-ip"
     kick: "punishmaster.command.kick"
+    kick-ip: "punishmaster.command.kick-ip"
     history: "punishmaster.command.history"
     staff-history: "punishmaster.command.staff-history"
     rollback: "punishmaster.command.rollback"

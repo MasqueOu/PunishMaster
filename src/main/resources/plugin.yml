@@ -4,6 +4,4 @@ authors: [MasqueOu]
 main: be.masqueou.punishmaster.spigot.PunishMaster
 api-version: '1.20'
 commands:
-  yolo:
-    description: gae
-    usage: type in chat gae
+  punishmaster:

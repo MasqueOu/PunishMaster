@@ -1,6 +1,7 @@
 package be.masqueou.punishmaster.spigot;
 
 import be.masqueou.punishmaster.spigot.manager.commands.CommandRoot;
+import be.masqueou.punishmaster.spigot.manager.listeners.ListenersManager;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.MultiLineChart;
 import org.bukkit.Bukkit;
@@ -13,9 +14,16 @@ public class PunishMaster extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // In first : Load Config
+        // Enable Database connection
+        // Enable Listeners - done
+        new ListenersManager(this);
+        // Check update
+        // Enable commands - done
         new CommandRoot(this);
+        // Enable BStats - done
+        this.setupBStats();
 
-        setupBStats();
         super.onEnable();
     }
 
