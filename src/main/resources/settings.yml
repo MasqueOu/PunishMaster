@@ -14,7 +14,6 @@
 ##################################################################################################################
 
 main:
-  prefix: "§6[§cPunishMaster§6]" # Set a prefix for chat messages.
   lang: "en_US" # Supported languages can be find in "./plugins/PunishMaster/lang/".
   check_update: true # Enables the plugin to run a check (at startup) to see if a newer version is available.
 system:
@@ -46,21 +45,21 @@ permissions:
     help: "punishmaster.command.help"
     ban: "punishmaster.command.ban"
     unban: "punishmaster.command.unban"
-    ban-ip: "punishmaster.command.ban-ip"
-    unban-ip: "punishmaster.command.unban-ip"
+    ban_ip: "punishmaster.command.ban-ip"
+    unban_ip: "punishmaster.command.unban-ip"
     mute: "punishmaster.command.mute"
     unmute: "punishmaster.command.unmute"
-    mute-ip: "punishmaster.command.mute-ip"
-    unmute-ip: "punishmaster.command.unmute-ip"
+    mute_ip: "punishmaster.command.mute-ip"
+    unmute_ip: "punishmaster.command.unmute-ip"
     kick: "punishmaster.command.kick"
-    kick-ip: "punishmaster.command.kick-ip"
+    kick_ip: "punishmaster.command.kick-ip"
     history: "punishmaster.command.history"
-    staff-history: "punishmaster.command.staff-history"
+    staff_history: "punishmaster.command.staff-history"
     rollback: "punishmaster.command.rollback"
     lockdown: "punishmaster.command.lockdown"
-    staff-chat: "punishmaster.command.staff-chat"
+    staff_chat: "punishmaster.command.staff-chat"
   chat:
-    staffchat-view: "punishmaster.chat.staffchat"
-    view-punishment: "punishmaster.chat.view-punishment"
+    staffchat_view: "punishmaster.chat.staffchat"
+    view_punishment: "punishmaster.chat.view-punishment"
 
 
