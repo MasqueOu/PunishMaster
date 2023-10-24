@@ -4,6 +4,7 @@ import be.masqueou.punishmaster.spigot.database.mysql.manager.MySQLManager;
 import be.masqueou.punishmaster.spigot.manager.commands.CommandRoot;
 import be.masqueou.punishmaster.spigot.manager.listeners.ListenersManager;
 import be.masqueou.punishmaster.spigot.utils.config.Settings;
+import be.masqueou.punishmaster.spigot.utils.ip.AddressUtils;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.MultiLineChart;
 import org.bukkit.Bukkit;
@@ -16,11 +17,13 @@ public class PunishMaster extends JavaPlugin {
 
     private Settings settings;
     private MySQLManager mySQLManager;
+    private AddressUtils adressUtils;
 
     @Override
     public void onEnable() {
         // In first : Load Config - 50% Done
-        settings = new Settings();
+        this.settings = new Settings();
+        this.adressUtils = new AddressUtils(this);
         // Enable Database connection - 50% done
         this.setupDatabase();
         new ListenersManager(this);
@@ -31,12 +34,13 @@ public class PunishMaster extends JavaPlugin {
     }
 
     private void setupBStats() {
-        new Metrics(this, 20109).addCustomChart(new MultiLineChart("players_and_servers", () -> {
-            Map<String, Integer> valueMap = new HashMap<>();
-            valueMap.put("servers", 1);
-            valueMap.put("players", Bukkit.getOnlinePlayers().size());
-            return valueMap;
-        }));
+        if(getSettings().enable_bstats)
+            new Metrics(this, 20109).addCustomChart(new MultiLineChart("players_and_servers", () -> {
+                Map<String, Integer> valueMap = new HashMap<>();
+                valueMap.put("servers", 1);
+                valueMap.put("players", Bukkit.getOnlinePlayers().size());
+                return valueMap;
+            }));
     }
 
     private void checkUpdate() {

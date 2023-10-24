@@ -16,10 +16,20 @@
 main:
   lang: "en_US" # Supported languages can be find in "./plugins/PunishMaster/lang/".
   check_update: true # Enables the plugin to run a check (at startup) to see if a newer version is available.
+  enable_bstats: true # Enables the plugin to activate "bstats", allowing it to receive statistics (connected players / number of servers using the plugin). These two values and ONLY these two values. Can also be disabled from "bstats" configuration.
+
+  #############################################################################################################
+  # Note: This function is completely USELESS in the case of unauthorized access to the plugin name.          #
+  # Since the plugin is OpenSource, it's easy to recover the encryption algorithm behind this protection.     #
+  # Stay vigilant. They may not have access to your encryption code, but if they do, the data will be theirs. #
+  # Recommended anyway.                                                                                       #
+  #############################################################################################################
+  cryptography_key: "replaceme" # To protect your database of players IP addresses from unauthorized access. You MUST replace this text with a text of your choice, anything like: "chat123", "ilovefrenchbaguette123", "illeatpizzatomorrowyeah".
 system:
   proxy:
     # Need to be enabled if you've a Proxy (BungeeCord, Velocity, Waterfall, etc...) behind your gameserver.
     proxy_mode: false
+
     # Need to be enabled if you've some Proxies (using RedisBungee) behind your gameserver.
     # Unused at this moment.
     redisbungee_mode: false
@@ -27,18 +37,18 @@ database:
   # SQLite Punishment saver. In a file based database.
   # Not compatible with RedisBungee or Proxied mode.
   sqlite:
-    use: true
+    use: true # Default : true
     hostname: ""
     username: ""
     password: ""
     database_name: ""
   # MySQL Punishment saver. In a database.
   mysql:
-    use: false
-    hostname: ""
-    username: ""
-    password: ""
-    database_name: ""
+    use: false # Default: false
+    hostname: "replace me if necessary"
+    username: "replace me if necessary"
+    password: "replace me if necessary"
+    database_name: "replace me if necessary"
     port: "3306"
 permissions:
   commands:

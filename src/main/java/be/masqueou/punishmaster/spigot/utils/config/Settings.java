@@ -7,6 +7,8 @@ public class Settings {
      */
     public String main_Lang;
     public boolean main_check_update;
+    public boolean enable_bstats;
+    public String cryptography_Key;
 
     /*
      * System Settings
